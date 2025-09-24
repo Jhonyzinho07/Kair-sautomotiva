@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kairós Automotiva — Oficina e Serviços</title>
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <meta property="og:title" content="Kairós Automotiva — Oficina e Serviços">
+    <meta property="og:description" content="Manutenção automotiva com qualidade e confiança. Diagnóstico preciso, peças de qualidade e atendimento rápido.">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seudominio.com">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kairós Automotiva — Oficina e Serviços">
+    <meta name="twitter:description" content="Manutenção automotiva com qualidade e confiança.">
+    <meta name="twitter:image" content="logo.png">
+
+    <style>
+        :root{--bg:#0b1220;--card:#071023;--muted:#b0becf;--accent:#ffb703;--accent-2:#fb8500;--glass:rgba(255,255,255,0.03);--radius:12px;font-family:Inter,system-ui, -apple-system, 'Segoe UI', Roboto, Arial}
+        *{box-sizing:border-box}
+        
+        html{scroll-behavior:smooth}
+        
+        body{margin:0;min-height:100vh;background-color:#000;color:#eef3fb;-webkit-font-smoothing:antialiased}
+        
+        .hero-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+
+        .hero-content-wrapper {
+            position: relative;
+            z-index: 3;
+            padding: 28px 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .brand-logo{position:absolute;top:28px;left:28px; z-index: 4;}
+        .brand-logo img{
+            height: 160px;
+        }
+
+        .main-nav{position:absolute;top:28px;right:28px; z-index: 4;}
+        .main-nav a{color:#fff;text-decoration:none;padding:8px 12px;font-weight:600;border-radius:6px;transition: background-color 0.2s}
+        .main-nav a:hover{background-color: var(--glass)}
+
+        .main-nav a:focus, .cta:focus, .secondary-btn:focus, input:focus, textarea:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .hero-content h1{font-size:2.8rem;margin:0;line-height:1.2;max-width:600px}
+        .hero-content h1 span{color:var(--accent)}
+        .hero-content p{color:var(--muted);margin-top:12px;max-width:500px}
+
+        .hero-buttons{display:flex;flex-wrap: wrap; justify-content: center; gap:16px;margin-top:24px}
+        .hero-buttons .cta{background-color:var(--accent);color:#0b1220;padding:14px 24px;border-radius:8px;font-weight:700;text-decoration:none;transition:background-color 0.3s}
+        .hero-buttons .cta:hover{background-color:var(--accent-2)}
+        .hero-buttons .secondary-btn{background-color:transparent;color:#fff;padding:14px 24px;border:1px solid rgba(255,255,255,0.4);border-radius:8px;font-weight:700;text-decoration:none;transition:border-color 0.3s,background-color 0.3s}
+        .hero-buttons .secondary-btn:hover{border-color:var(--accent);background-color:rgba(255,255,255,0.05)}
+
+        .content-section{padding:60px 28px;max-width:1100px;margin:0 auto}
+        
+        .content-section h2 {
+          font-size: 2.2rem;
+          background: linear-gradient(90deg, var(--accent), var(--accent-2));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+          margin-bottom: 24px;
+        }
+
+        .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-top:20px}
+        .service{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.012), transparent);border:1px solid rgba(255,255,255,0.03);cursor:pointer;transition:transform 0.3s, box-shadow 0.3s}
+        .service:hover{transform:scale(1.03);box-shadow:0 12px 40px rgba(2,6,23,0.8)}
+        .service .icon{font-size:2rem;color:var(--accent)}
+        .service h3{margin:6px 0}
+        
+        #map{height:250px;border-radius:10px;overflow:hidden}
+
+        footer{margin-top:32px;color:var(--muted);text-align:center}
+        
+        #messageBox{position:fixed;top:20px;right:20px;background-color:var(--accent);color:#0b1220;padding:15px 20px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.3);z-index:2000;display:none;font-weight:600;transition:opacity 0.5s ease-in-out}
+
+        .whatsapp-button{position:fixed;bottom:20px;right:20px;background-color:#25d366;color:white;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,0.3);z-index:1000;transition:transform 0.3s ease-in-out}
+        .whatsapp-button:hover{transform:scale(1.1)}
+        .whatsapp-button i{font-size:28px}
+        
+        .cursos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 20px; }
+        .curso-card { padding: 24px; text-align: center; border: 1px solid rgba(255,255,255,0.03); border-radius: var(--radius); background: linear-gradient(180deg, rgba(255,255,255,0.012), transparent); transition: transform 0.3s, box-shadow 0.3s; }
+        .curso-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(2,6,23,0.8); }
+        .curso-card .icon { font-size: 2.5rem; color: var(--accent); }
+        .curso-card h3 { margin: 15px 0 8px 0; }
+        
+        .curso-link {
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 16px;
+            padding: 14px 24px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .curso-link::after {
+            content: ' \f061';
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            transition: transform 0.3s ease;
+            display: inline-block;
+            margin-left: 6px;
+        }
+        .curso-link:hover { text-decoration: underline; }
+        .curso-link:hover::after { transform: translateX(5px); }
+
+        .about-history {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            align-items: center;
+        }
+        .about-image {
+            flex: 1;
+            min-width: 280px;
+        }
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+        }
+        .about-text {
+            flex: 1.5;
+            min-width: 300px;
+        }
+        .about-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .pillar {
+            padding: 24px;
+        }
+        .about-team {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .team-member {
+            padding: 16px;
+        }
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 12px;
+            border: 3px solid var(--accent);
+        }
+        .team-member h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .contact-info a {
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent);
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        
+        @keyframes pulse {
+          0% { box-shadow: 0 0 0 0 rgba(255, 183, 3, 0.7); }
+          70% { box-shadow: 0 0 0 10px rgba(255, 183, 3, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(255, 183, 3, 0); }
+        }
+        .hero-buttons .cta { animation: pulse 2s infinite; }
+
+        .reveal { position: relative; transform: translateY(50px); opacity: 0; transition: all 1s ease; }
+        .reveal.active { transform: translateY(0); opacity: 1; }
+
+        @media (max-width: 900px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .brand-logo, .main-nav { position: static; }
+            .header-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="hero-container">
+        
+        <video autoplay loop muted playsinline id="hero-video">
+            <source src="v.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+
+        <div class="hero-overlay"></div>
+
+        <div class="brand-logo">
+            <img src="logo.png" alt="Logo da Kairós">
+        </div>
+        <nav class="main-nav">
+            <a href="#">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#cursos">Cursos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+
+        <div class="hero-content-wrapper">
+            <div class="hero-content">
+                <h1>Cuidando do seu carro com <br><span>qualidade e confiança</span></h1>
+                <p>Especialistas em serviços automotivos. Seu carro em mãos seguras e confiáveis.</p>
+                <div class="hero-buttons">
+                    <a href="#contato" class="cta">Agende seu serviço</a>
+                    <a href="https://wa.me/5511969818515?text=Ol%C3%A1!%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20Kair%C3%B3s%20Automotiva." target="_blank" class="secondary-btn">Saiba mais</a>
+                    <a href="#localizacao" class="secondary-btn">Como chegar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="content-section">
+        <section id="servicos" class="reveal">
+            <h2>Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service card">
+                    <i class="fa-solid fa-wrench icon"></i>
+                    <h3>Manutenção corretiva e preventiva</h3>
+                    <p class="muted">Revisões programadas e reparos essenciais para a saúde do seu veículo.</p>
+                </div>
+                <div class="service card">
+                    <i class="fa-solid fa-gears icon"></i>
+                    <h3>Mecânica em geral</h3>
+                    <p class="muted">Soluções completas para motor, câmbio e todos os componentes do seu carro.</p>
+                </div>
+                <div class="service card">
+                    <i class="fa-solid fa-microchip icon"></i>
+                    <h3>Injeção eletrônica</h3>
+                    <p class="muted">Diagnóstico e reparo preciso para sistemas de injeção, garantindo eficiência.</p>
+                </div>
+                <div class="service card">
+                    <i class="fa-solid fa-magnifying-glass-chart icon"></i>
+                    <h3>Diagnóstico eletrônico</h3>
+                    <p class="muted">Análise computadorizada avançada para identificar falhas com máxima precisão.</p>
+                </div>
+                <div class="service card">
+                    <i class="fa-solid fa-oil-can icon"></i>
+                    <h3>Troca de óleo e filtros</h3>
+                    <p class="muted">Serviço rápido com óleos e filtros de alta qualidade para proteger seu motor.</p>
+                </div>
+                <div class="service card">
+                    <i class="fa-solid fa-car-side icon"></i>
+                    <h3>Freios e suspensão</h3>
+                    <p class="muted">Segurança em primeiro lugar: revisão e troca de pastilhas, discos e amortecedores.</p>
+                </div>
+                <div class="service card">
+                    <i class="fa-solid fa-snowflake icon"></i>
+                    <h3>Ar-condicionado</h3>
+                    <p class="muted">Manutenção, limpeza e recarga do sistema de ar-condicionado para seu conforto.</p>
+                </div>
+                <div class="service card">
+                    <i class="fa-solid fa-plus-circle icon"></i>
+                    <h3>Outros serviços sob demanda</h3>
+                    <p class="muted">Tem uma necessidade específica? Converse conosco e encontre a solução.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="reveal">
+            <div class="about-history card">
+                <div class="about-image">
+                    <img src="bio-kairos.png" alt="Oficina Kairós Automotiva">
+                </div>
+                <div class="about-text">
+                    <h2>Nossa História</h2>
+                    <p class="muted">Fundada em 2014, a Kairós Automotiva nasceu de uma paixão por carros e do desejo de oferecer um serviço mecânico em que os clientes pudessem realmente confiar. O nome Kairós, que significa "o momento certo", reflete nossa missão: ser a solução certa na hora que você mais precisa. Mais do que uma oficina, somos parceiros na jornada de cuidado com o seu veículo.</p>
+                </div>
+            </div>
+            <div class="about-pillars">
+                <div class="pillar card">
+                    <i class="fa-solid fa-award icon"></i>
+                    <h3>Qualidade Garantida</h3>
+                    <p class="muted">Utilizamos apenas peças de fornecedores confiáveis e nossa equipe é formada por técnicos certificados.</p>
+                </div>
+                <div class="pillar card">
+                    <i class="fa-solid fa-comments icon"></i>
+                    <h3>Transparência Total</h3>
+                    <p class="muted">Prezamos por orçamentos claros e explicamos cada detalhe do serviço, sem surpresas na hora de pagar.</p>
+                </div>
+                <div class="pillar card">
+                    <i class="fa-solid fa-bolt-lightning icon"></i>
+                    <h3>Agilidade e Eficiência</h3>
+                    <p class="muted">Sabemos que seu tempo é precioso. Nosso compromisso é cumprir os prazos e entregar um serviço rápido.</p>
+                </div>
+            </div>
+            <div class="about-team">
+                <h2>Conheça Nossa Equipe</h2>
+                <div class="team-grid">
+                    <div class="team-member card">
+                        <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=2071&auto=format&fit=crop" alt="Foto do Fundador">
+                        <h4>João da Silva</h4>
+                        <p class="muted">Fundador e Mecânico Chefe</p>
+                    </div>
+                    <div class="team-member card">
+                        <img src="https://images.unsplash.com/photo-1614283233556-f35b7c7b749d?q=80&w=1974&auto=format&fit=crop" alt="Foto do Mecânico">
+                        <h4>Marcos Rocha</h4>
+                        <p class="muted">Especialista em Eletrônica</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cursos" class="reveal">
+            <h2>Nossos Cursos</h2>
+            <div class="cursos-grid">
+                <div class="curso-card card">
+                    <i class="fa-solid fa-screwdriver-wrench icon"></i>
+                    <h3>Mecânica Básica para Iniciantes</h3>
+                    <p class="muted">Aprenda os fundamentos da mecânica automotiva e faça você mesmo pequenos reparos e manutenções.</p>
+                    <a href="#" class="curso-link">Saiba Mais</a>
+                </div>
+                <div class="curso-card card">
+                    <i class="fa-solid fa-bolt icon"></i>
+                    <h3>Eletricista Automotivo</h3>
+                    <p class="muted">Torne-se um especialista em diagnóstico e reparo de sistemas elétricos e eletrônicos de veículos.</p>
+                    <a href="#" class="curso-link">Saiba Mais</a>
+                </div>
+                <div class="curso-card card">
+                    <i class="fa-solid fa-cogs icon"></i>
+                    <h3>Injeção Eletrônica Avançada</h3>
+                    <p class="muted">Domine as tecnologias de injeção eletrônica, diagnóstico com scanner e otimização de performance.</p>
+                    <a href="#" class="curso-link">Saiba Mais</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="localizacao" class="card reveal">
+            <h2>Localização</h2>
+            <p class="muted" style="margin-bottom: 16px; text-align: center; font-weight: 600;">Av. José Moreira Filho, 55 - Vila Mogilar, Mogi das Cruzes - SP</p>
+            <div id="map">
+                <iframe title="Mapa de localização da Kairós Automotiva" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.503387872242!2d-46.19152228801963!3d-23.478672978759523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce7b5f54334331%3A0x3727653818458925!2sAv.%20Jos%C3%A9%20Moreira%20Filho%2C%2055%20-%20Vila%20Mogilar%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008773-210!5e0!3m2!1spt-BR!2sbr!4v1695524386822!5m2!1spt-BR!2sbr" style="border:0;width:100%;height:100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+        <section id="contato" class="reveal">
+            <h2>Contato</h2>
+            <aside class="card">
+                <h3>Atendimento</h3>
+                <p class="muted">Seg a Sex: 8h — 18h<br>Sáb: 8h — 12h</p>
+
+                <div class="contact-info" style="margin-top:12px;">
+                     <a href="https://wa.me/5511969818515?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os." target="_blank">
+                        <img src="whatsapp-logo.png" alt="Logo do WhatsApp" class="social-icon">
+                        (11) 96981-8515
+                    </a>
+                </div>
+                <div class="contact-info" style="margin-top:12px;">
+                    <a href="https://www.instagram.com/kairosautomotiva" target="_blank">
+                        <img src="instagram-logo.png" alt="Logo do Instagram" class="social-icon">
+                        @kairosautomotiva
+                    </a>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <div>© <span id="year"></span> Kairós Automotiva — Todos os direitos reservados</div>
+    </footer>
+    
+    <div id="messageBox"></div>
+
+    <a href="https://wa.me/5511969818515?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os." target="_blank" class="whatsapp-button">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        function showMessage(message) {
+            const msgBox = document.getElementById('messageBox');
+            msgBox.textContent = message;
+            msgBox.style.display = 'block';
+            setTimeout(() => {
+                msgBox.style.display = 'none';
+            }, 4000);
+        }
+
+        function revealOnScroll() {
+          var reveals = document.querySelectorAll('.reveal');
+          for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150; 
+            if (elementTop < windowHeight - elementVisible) {
+              reveals[i].classList.add('active');
+            } else {
+              reveals[i].classList.remove('active'); 
+            }
+          }
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+        
+    </script>
+</body>
+</html>
