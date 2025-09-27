@@ -59,27 +59,48 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.6);
             z-index: 2;
         }
 
         .hero-content-wrapper {
             position: relative;
             z-index: 3;
-            padding: 28px 48px;
+            padding: 28px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         
-        .brand-logo{position:absolute;top:28px;left:28px; z-index: 4;}
-        .brand-logo img{
-            height: 160px;
+        .header-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 28px;
         }
 
-        .main-nav{position:absolute;top:28px;right:28px; z-index: 4;}
+        .brand-logo img{
+            height: 100px;
+            transition: height 0.3s ease;
+        }
+
         .main-nav a{color:#fff;text-decoration:none;padding:8px 12px;font-weight:600;border-radius:6px;transition: background-color 0.2s}
         .main-nav a:hover{background-color: var(--glass)}
+        
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+        }
 
         .main-nav a:focus, .cta:focus, .secondary-btn:focus, input:focus, textarea:focus {
             outline: 2px solid var(--accent);
@@ -97,153 +118,101 @@
         .hero-buttons .secondary-btn:hover{border-color:var(--accent);background-color:rgba(255,255,255,0.05)}
 
         .content-section{padding:60px 28px;max-width:1100px;margin:0 auto}
-        
-        .content-section h2 {
-          font-size: 2.2rem;
-          background: linear-gradient(90deg, var(--accent), var(--accent-2));
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          text-fill-color: transparent;
-          margin-bottom: 24px;
-        }
-
+        .content-section h2 { font-size: 2.2rem; background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent; margin-bottom: 24px; }
         .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-top:20px}
         .service{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.012), transparent);border:1px solid rgba(255,255,255,0.03);cursor:pointer;transition:transform 0.3s, box-shadow 0.3s}
         .service:hover{transform:scale(1.03);box-shadow:0 12px 40px rgba(2,6,23,0.8)}
         .service .icon{font-size:2rem;color:var(--accent)}
         .service h3{margin:6px 0}
-        
         #map{height:250px;border-radius:10px;overflow:hidden}
-
         footer{margin-top:32px;color:var(--muted);text-align:center}
-        
         #messageBox{position:fixed;top:20px;right:20px;background-color:var(--accent);color:#0b1220;padding:15px 20px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.3);z-index:2000;display:none;font-weight:600;transition:opacity 0.5s ease-in-out}
-
         .whatsapp-button{position:fixed;bottom:20px;right:20px;background-color:#25d366;color:white;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,0.3);z-index:1000;transition:transform 0.3s ease-in-out}
         .whatsapp-button:hover{transform:scale(1.1)}
         .whatsapp-button i{font-size:28px}
-        
         .cursos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 20px; }
         .curso-card { padding: 24px; text-align: center; border: 1px solid rgba(255,255,255,0.03); border-radius: var(--radius); background: linear-gradient(180deg, rgba(255,255,255,0.012), transparent); transition: transform 0.3s, box-shadow 0.3s; }
         .curso-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(2,6,23,0.8); }
         .curso-card .icon { font-size: 2.5rem; color: var(--accent); }
         .curso-card h3 { margin: 15px 0 8px 0; }
-        
-        .curso-link {
-            color: var(--accent);
-            font-weight: 600;
-            text-decoration: none;
-            margin-top: 16px;
-            padding: 14px 24px;
-            display: inline-block;
-            transition: transform 0.3s ease;
-        }
-        .curso-link::after {
-            content: ' \f061';
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            transition: transform 0.3s ease;
-            display: inline-block;
-            margin-left: 6px;
-        }
+        .curso-link { color: var(--accent); font-weight: 600; text-decoration: none; margin-top: 16px; padding: 14px 24px; display: inline-block; transition: transform 0.3s ease; }
+        .curso-link::after { content: ' \f061'; font-family: "Font Awesome 6 Free"; font-weight: 900; transition: transform 0.3s ease; display: inline-block; margin-left: 6px; }
         .curso-link:hover { text-decoration: underline; }
         .curso-link:hover::after { transform: translateX(5px); }
-
-        .about-history {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            align-items: center;
-        }
-        .about-image {
-            flex: 1;
-            min-width: 280px;
-        }
-        .about-image img {
-            width: 100%;
-            height: auto;
-            border-radius: var(--radius);
-        }
-        .about-text {
-            flex: 1.5;
-            min-width: 300px;
-        }
-        .about-pillars {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 16px;
-            margin-top: 40px;
-            text-align: center;
-        }
-        .pillar {
-            padding: 24px;
-        }
-        .about-team {
-            margin-top: 40px;
-            text-align: center;
-        }
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-top: 20px;
-        }
-        .team-member {
-            padding: 16px;
-        }
-        .team-member img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 12px;
-            border: 3px solid var(--accent);
-        }
-        .team-member h4 {
-            margin: 0;
-            font-size: 1.1rem;
-        }
-        
-        .contact-info a {
-            color: var(--muted);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.3s;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .contact-info a:hover {
-            color: var(--accent);
-        }
-
-        .social-icon {
-            width: 24px;
-            height: 24px;
-            vertical-align: middle;
-            margin-right: 8px;
-        }
-        
-        @keyframes pulse {
-          0% { box-shadow: 0 0 0 0 rgba(255, 183, 3, 0.7); }
-          70% { box-shadow: 0 0 0 10px rgba(255, 183, 3, 0); }
-          100% { box-shadow: 0 0 0 0 rgba(255, 183, 3, 0); }
-        }
+        .about-history { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+        .about-image { flex: 1; min-width: 280px; }
+        .about-image img { width: 100%; height: auto; border-radius: var(--radius); }
+        .about-text { flex: 1.5; min-width: 300px; }
+        .about-pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 40px; text-align: center; }
+        .pillar { padding: 24px; }
+        .about-team { margin-top: 40px; text-align: center; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 20px; }
+        .team-member { padding: 16px; }
+        .team-member img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; border: 3px solid var(--accent); }
+        .team-member h4 { margin: 0; font-size: 1.1rem; }
+        .contact-info a { color: var(--muted); text-decoration: none; font-weight: 700; transition: color 0.3s; display: inline-flex; align-items: center; }
+        .contact-info a:hover { color: var(--accent); }
+        .social-icon { width: 24px; height: 24px; vertical-align: middle; margin-right: 8px; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 183, 3, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(255, 183, 3, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 183, 3, 0); } }
         .hero-buttons .cta { animation: pulse 2s infinite; }
-
         .reveal { position: relative; transform: translateY(50px); opacity: 0; transition: all 1s ease; }
         .reveal.active { transform: translateY(0); opacity: 1; }
 
+        /* ########## INÍCIO DAS REGRAS PARA MOBILE ########## */
+        
         @media (max-width: 900px) {
             .hero-content h1 { font-size: 2.2rem; }
-            .brand-logo, .main-nav { position: static; }
-            .header-wrapper {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding-top: 28px;
+            .content-section { padding: 40px 20px; }
+            .content-section h2 { font-size: 1.8rem; }
+            
+            .hero-container {
+                padding-top: 100px; 
             }
+
+            .header-wrapper {
+                position: fixed;
+                background: rgba(11, 18, 32, 0.7);
+                backdrop-filter: blur(5px);
+            }
+
+            .brand-logo img {
+                height: 90px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 60%;
+                height: 100vh;
+                background: var(--bg);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                transform: translateX(100%);
+                transition: transform 0.4s ease-in-out;
+                display: flex;
+            }
+
+            .main-nav.nav-active {
+                transform: translateX(0);
+            }
+
+            .main-nav a {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Ajustes para telas ainda menores */
+        @media (max-width: 480px) {
+            .hero-content h1 { font-size: 1.8rem; }
+            .hero-content p { font-size: 0.9rem; }
+            .hero-buttons { flex-direction: column; align-items: stretch; }
         }
     </style>
 </head>
@@ -258,15 +227,22 @@
 
         <div class="hero-overlay"></div>
 
-        <div class="brand-logo">
-            <img src="logo.png" alt="Logo da Kairós">
-        </div>
-        <nav class="main-nav">
-            <a href="#">Início</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#cursos">Cursos</a>
-            <a href="#contato">Contato</a>
-        </nav>
+        <header class="header-wrapper">
+            <div class="brand-logo">
+                <img src="logo.png" alt="Logo da Kairós Automotiva">
+            </div>
+            
+            <nav class="main-nav">
+                <a href="#">Início</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#cursos">Cursos</a>
+                <a href="#contato">Contato</a>
+            </nav>
+
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </header>
 
         <div class="hero-content-wrapper">
             <div class="hero-content">
@@ -412,8 +388,8 @@
 
                 <div class="contact-info" style="margin-top:12px;">
                      <a href="https://wa.me/5511969818515?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os." target="_blank">
-                        <img src="whatsapp-logo.png" alt="Logo do WhatsApp" class="social-icon">
-                        (11) 96981-8515
+                         <img src="whatsapp-logo.png" alt="Logo do WhatsApp" class="social-icon">
+                         (11) 96981-8515
                     </a>
                 </div>
                 <div class="contact-info" style="margin-top:12px;">
@@ -464,6 +440,14 @@
 
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
+
+        // SCRIPT PARA O MENU HAMBÚRGUER
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('nav-active');
+        });
         
     </script>
 </body>
