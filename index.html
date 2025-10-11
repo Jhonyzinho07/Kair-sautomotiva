@@ -140,13 +140,38 @@
         .curso-link:hover { text-decoration: underline; }
         .curso-link:hover::after { transform: translateX(5px); }
         .about-history { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
-        .about-image { flex: 1; min-width: 280px; }
-        .about-image img { width: 100%; height: auto; border-radius: var(--radius); }
-        .about-text { flex: 1.5; min-width: 300px; }
-        .about-pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 40px; text-align: center; }
+       
+        #sobre {
+    margin-top: 80px;
+}
+
+        .about-image {
+            flex: 1;
+            min-height: 300px;
+            max-width: 450px;
+            margin: 0 auto;
+            border-radius: var(--radius);
+
+            background-image: url('bio-kairos.png');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+        }
+
+        .about-text {
+            flex: 1.5;
+            min-width: 300px;
+        }
+        .about-pillars { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 16px; 
+            margin-top: 60px; 
+            text-align: center; 
+        }
+
         .pillar { padding: 24px; }
         .about-team { margin-top: 40px; text-align: center; }
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 20px; }
         .team-member { padding: 16px; }
         .team-member img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; border: 3px solid var(--accent); }
         .team-member h4 { margin: 0; font-size: 1.1rem; }
@@ -157,8 +182,16 @@
         .hero-buttons .cta { animation: pulse 2s infinite; }
         .reveal { position: relative; transform: translateY(50px); opacity: 0; transition: all 1s ease; }
         .reveal.active { transform: translateY(0); opacity: 1; }
-
-        /* ########## INÍCIO DAS REGRAS PARA MOBILE ########## */
+        
+        /* Estilo para a foto da equipe */
+        .team-photo {
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 20px auto 0;
+            border-radius: var(--radius);
+            border: 2px solid var(--accent);
+        }
         
         @media (max-width: 900px) {
             .hero-content h1 { font-size: 2.2rem; }
@@ -208,7 +241,6 @@
             }
         }
 
-        /* Ajustes para telas ainda menores */
         @media (max-width: 480px) {
             .hero-content h1 { font-size: 1.8rem; }
             .hero-content p { font-size: 0.9rem; }
@@ -306,9 +338,9 @@
 
         <section id="sobre" class="reveal">
             <div class="about-history card">
-                <div class="about-image">
-                    <img src="bio-kairos.png" alt="Oficina Kairós Automotiva">
-                </div>
+                
+                <div class="about-image" role="img" aria-label="Oficina Kairós Automotiva"></div>
+                
                 <div class="about-text">
                     <h2>Nossa História</h2>
                     <p class="muted">Fundada em 2014, a Kairós Automotiva nasceu de uma paixão por carros e do desejo de oferecer um serviço mecânico em que os clientes pudessem realmente confiar. O nome Kairós, que significa "o momento certo", reflete nossa missão: ser a solução certa na hora que você mais precisa. Mais do que uma oficina, somos parceiros na jornada de cuidado com o seu veículo.</p>
@@ -331,21 +363,12 @@
                     <p class="muted">Sabemos que seu tempo é precioso. Nosso compromisso é cumprir os prazos e entregar um serviço rápido.</p>
                 </div>
             </div>
+            
             <div class="about-team">
                 <h2>Conheça Nossa Equipe</h2>
-                <div class="team-grid">
-                    <div class="team-member card">
-                        <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=2071&auto=format&fit=crop" alt="Foto do Fundador">
-                        <h4>João da Silva</h4>
-                        <p class="muted">Fundador e Mecânico Chefe</p>
-                    </div>
-                    <div class="team-member card">
-                        <img src="https://images.unsplash.com/photo-1614283233556-f35b7c7b749d?q=80&w=1974&auto=format&fit=crop" alt="Foto do Mecânico">
-                        <h4>Marcos Rocha</h4>
-                        <p class="muted">Especialista em Eletrônica</p>
-                    </div>
-                </div>
+                <img src="equipe-kairos.jpg" alt="Equipe da Kairós Automotiva reunida na oficina" class="team-photo">
             </div>
+
         </section>
 
         <section id="cursos" class="reveal">
@@ -441,7 +464,6 @@
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
 
-        // SCRIPT PARA O MENU HAMBÚRGUER
         const menuToggle = document.querySelector('.menu-toggle');
         const mainNav = document.querySelector('.main-nav');
 
