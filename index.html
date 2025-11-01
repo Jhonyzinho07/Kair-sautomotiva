@@ -35,7 +35,7 @@
         .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0, 0, 0, 0.6);z-index:2}
         .hero-content-wrapper{position:relative;z-index:3;padding:28px;display:flex;flex-direction:column;align-items:center}
         .header-wrapper{position:absolute;top:0;left:0;width:100%;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:20px 28px}
-        .brand-logo img{height:100px;transition:height 0.3s ease}
+        .brand-logo img{height:200px;transition:height 0.3s ease}
         .main-nav a{color:#fff;text-decoration:none;padding:8px 12px;font-weight:600;border-radius:6px;transition: background-color 0.2s}
         .main-nav a:hover{background-color: var(--glass)}
         .menu-toggle{display:none;background:transparent;border:none;color:white;font-size:24px;cursor:pointer;z-index:1001}
@@ -74,7 +74,6 @@
         #sobre { margin-top: 80px; }
         .about-history { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
         
-        /* <<< CSS MODIFICADO PARA O TESTE >>> */
         .about-image {
             flex: 1;
             max-width: 450px;
@@ -92,16 +91,16 @@
         .hero-buttons .cta { animation: pulse 2s infinite; }
         .reveal { position: relative; transform: translateY(50px); opacity: 0; transition: all 1s ease; }
         .reveal.active { transform: translateY(0); opacity: 1; }
-        .team-photo { width: 100%; max-width: 800px; display: block; margin: 20px auto 0; border-radius: var(--radius); border: 2px solid var(--accent); }
         
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 24px; }
-        .gallery-thumbnail { width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius); cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .gallery-thumbnail:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(0,0,0,0.5); }
-        #lightbox-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: 2000; display: none; justify-content: center; align-items: center; padding: 20px; }
-        #lightbox-image { max-width: 90%; max-height: 85%; border-radius: var(--radius); border: 2px solid var(--accent); }
-        .lightbox-close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; }
-
-        /* ========= INÍCIO DO BLOCO DE CÓDIGO CORRIGIDO ========= */
+        #structure-video {
+            width: 100%;
+            max-width: 800px; 
+            display: block;
+            margin: 20px auto 0; 
+            border-radius: var(--radius);
+            border: 2px solid var(--accent);
+        }
+        
         @media (max-width: 900px) {
             .hero-container { min-height: 60vh; } 
             .hero-content h1 { font-size: 2.2rem; }
@@ -117,13 +116,12 @@
             }
 
             .header-wrapper { position: fixed; background: rgba(11, 18, 32, 0.7); backdrop-filter: blur(5px); }
-            .brand-logo img { height: 90px; }
+            .brand-logo img { height: 180px; }
             .menu-toggle { display: block; }
             .main-nav { position: fixed; top: 0; right: 0; width: 60%; height: 100vh; background: var(--bg); flex-direction: column; justify-content: center; align-items: center; gap: 20px; transform: translateX(100%); transition: transform 0.4s ease-in-out; display: flex; }
             .main-nav.nav-active { transform: translateX(0); }
             .main-nav a { font-size: 1.2rem; }
         }
-        /* ========= FIM DO BLOCO DE CÓDIGO CORRIGIDO ========= */
 
         @media (max-width: 480px) {
             .hero-content h1 { font-size: 1.8rem; }
@@ -145,8 +143,8 @@
             <nav class="main-nav">
                 <a href="#">Início</a>
                 <a href="#servicos">Serviços</a>
-                <a href="#galeria">Galeria</a>
                 <a href="#cursos">Cursos</a>
+                <a href="#estrutura">Estrutura</a>
                 <a href="#contato">Contato</a>
             </nav>
             <button class="menu-toggle" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
@@ -165,6 +163,24 @@
     </div>
 
     <main class="content-section">
+
+
+        <section id="localizacao" class="card reveal">
+            <h2>Localização</h2>
+            <p class="muted" style="margin-bottom: 16px; text-align: center; font-weight: 600;">Av. José Moreira Filho, 55 - Vila Mogilar, Mogi das Cruzes - SP</p>
+            <div id="map"><iframe title="Mapa de localização da Kairós Automotiva" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.351239845184!2d-46.18821068502369!3d-23.48392598472149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce7b5f6a9f5d3d%3A0x7d6b38a7c2e361!2sAv.%20Jos%C3%A9%20Moreira%20Filho%2C%2055%20-%20Vila%20Mogilar%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008773-130!5e0!3m2!1spt-BR!2sbr!4v1664293123456" style="border:0;width:100%;height:100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        </section>
+
+        <section id="contato" class="reveal">
+            <h2>Contato</h2>
+            <aside class="card">
+                <h3>Atendimento</h3>
+                <p class="muted">Seg a Sex: 8h — 18h<br>Sáb: 8h — 12h</p>
+                <div class="contact-info" style="margin-top:12px;"><a href="https://wa.me/5511969818515?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os." target="_blank"><img src="whatsapp-logo.png" alt="Logo do WhatsApp" class="social-icon"> (11) 96981-8515</a></div>
+                <div class="contact-info" style="margin-top:12px;"><a href="https://www.instagram.com/kairosautomotiva" target="_blank"><img src="instagram-logo.png" alt="Logo do Instagram" class="social-icon"> @kairosautomotiva</a></div>
+            </aside>
+        </section>
+
         <section id="servicos" class="reveal">
             <h2>Nossos Serviços</h2>
             <div class="services-grid">
@@ -179,39 +195,6 @@
             </div>
         </section>
 
-        <section id="sobre" class="reveal">
-            <div class="about-history card">
-                <div class="about-image">
-                    <img src="bio-kairos.png" alt="Teste de carregamento da imagem da oficina" style="width:100%; display:block; border-radius:12px;" onerror="this.outerHTML = '<p style=\'color:red; font-weight:bold; font-size:1.2rem; text-align:center; padding: 20px;\'>ERRO CRÍTICO:<br>O arquivo \'bio-kairos.png\' não foi encontrado. Verifique o nome e o local do arquivo.</p>';">
-                </div>
-                <div class="about-text">
-                    <h2>Nossa História</h2>
-                    <p class="muted">Fundada em 2014, a Kairós Automotiva nasceu de uma paixão por carros e do desejo de oferecer um serviço mecânico em que os clientes pudessem realmente confiar. O nome Kairós, que significa "o momento certo", reflete nossa missão: ser a solução certa na hora que você mais precisa. Mais do que uma oficina, somos parceiros na jornada de cuidado com o seu veículo.</p>
-                </div>
-            </div>
-            <div class="about-pillars">
-                <div class="pillar card"><i class="fa-solid fa-award icon"></i><h3>Qualidade Garantida</h3><p class="muted">Utilizamos apenas peças de fornecedores confiáveis e nossa equipe é formada por técnicos certificados.</p></div>
-                <div class="pillar card"><i class="fa-solid fa-comments icon"></i><h3>Transparência Total</h3><p class="muted">Prezamos por orçamentos claros e explicamos cada detalhe do serviço, sem surpresas na hora de pagar.</p></div>
-                <div class="pillar card"><i class="fa-solid fa-bolt-lightning icon"></i><h3>Agilidade e Eficiência</h3><p class="muted">Sabemos que seu tempo é precioso. Nosso compromisso é cumprir os prazos e entregar um serviço rápido.</p></div>
-            </div>
-            <div class="about-team">
-                <h2>Conheça Nossa Equipe</h2>
-                <img src="equipe-kairos.jpg" alt="Equipe da Kairós Automotiva reunida na oficina" class="team-photo">
-            </div>
-        </section>
-
-        <section id="galeria" class="reveal">
-            <h2>Nossos Trabalhos</h2>
-            <div class="gallery-grid">
-                <img src="galeria-1.jpg" alt="Foto 1 da galeria de trabalhos" class="gallery-thumbnail" onclick="openLightbox(this.src)">
-                <img src="galeria-2.jpg" alt="Foto 2 da galeria de trabalhos" class="gallery-thumbnail" onclick="openLightbox(this.src)">
-                <img src="galeria-3.jpg" alt="Foto 3 da galeria de trabalhos" class="gallery-thumbnail" onclick="openLightbox(this.src)">
-                <img src="galeria-4.jpg" alt="Foto 4 da galeria de trabalhos" class="gallery-thumbnail" onclick="openLightbox(this.src)">
-                <img src="galeria-5.jpg" alt="Foto 5 da galeria de trabalhos" class="gallery-thumbnail" onclick="openLightbox(this.src)">
-                <img src="equipe-kairos.jpg" alt="Nossa equipe Kairós Automotiva" class="gallery-thumbnail" onclick="openLightbox(this.src)">
-            </div>
-        </section>
-
         <section id="cursos" class="reveal">
             <h2>Nossos Cursos</h2>
             <div class="cursos-grid">
@@ -221,33 +204,50 @@
             </div>
         </section>
 
-        <section id="localizacao" class="card reveal">
-    <h2>Localização</h2>
-    <p class="muted" style="margin-bottom: 16px; text-align: center; font-weight: 600;">Av. José Moreira Filho, 55 - Vila Mogilar, Mogi das Cruzes - SP</p>
-    <div id="map"><iframe title="Mapa de localização da Kairós Automotiva" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.351239845184!2d-46.18821068502369!3d-23.48392598472149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce7b5f6a9f5d3d%3A0x7d6b38a7c2e361!2sAv.%20Jos%C3%A9%20Moreira%20Filho%2C%2055%20-%20Vila%20Mogilar%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008773-130!5e0!3m2!1spt-BR!2sbr!4v1664293123456" style="border:0;width:100%;height:100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+
+        <section id="estrutura" class="reveal">
+            <h2>Nossa Estrutura</h2>
+            <video autoplay loop muted playsinline id="structure-video">
+                <source src="v.mp4" type="video/mp4">
+                Seu navegador não suporta a tag de vídeo.
+            </video>
         </section>
 
-        <section id="contato" class="reveal">
-            <h2>Contato</h2>
-            <aside class="card">
-                <h3>Atendimento</h3>
-                <p class="muted">Seg a Sex: 8h — 18h<br>Sáb: 8h — 12h</p>
-                <div class="contact-info" style="margin-top:12px;"><a href="https://wa.me/5511969818515?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os." target="_blank"><img src="whatsapp-logo.png" alt="Logo do WhatsApp" class="social-icon"> (11) 96981-8515</a></div>
-                <div class="contact-info" style="margin-top:12px;"><a href="https://www.instagram.com/kairosautomotiva" target="_blank"><img src="instagram-logo.png" alt="Logo do Instagram" class="social-icon"> @kairosautomotiva</a></div>
-            </aside>
+        <section id="sobre" class="reveal">
+            <div class="about-history card">
+                <div class="about-image">
+                    <img src="bio-kairos.png" alt="Teste de carregamento da imagem da oficina" style="width:100%; display:block; border-radius:12px;" onerror="this.outerHTML = '<p style=\'color:red; font-weight:bold; font-size:1.2rem; text-align:center; padding: 20px;\'>ERRO CRÍTICO:<br>O arquivo \'bio-kairos.png\' não foi encontrado. Verifique o nome e o local do arquivo.</p>';">
+                </div>
+                <div class="about-text">
+                    <h2>Nossa História</h2>
+                    <p class="muted">A trajetória da Kairós Automotiva começa comigo, Leonardo — um mecânico sonhador, com vontade de resolver os problemas dos outros e aprender a cada dia mais com as máquinas, que são os carros.
+
+A Kairós Automotiva, em si, é bem novinha. Surgiu no dia 18 de julho de 2021, em meio à pandemia. Mas a minha história com os carros é de longa data: comecei aos 15 anos de idade, com literally zero conhecimento, e fui avançando e me desenvolvendo a cada dia mais.
+
+O verdadeiro lema da Kairós Automotiva é: pegar o ruim e deixar bom; pegar o estragado e consertar, gerando a menor quantidade de transtorno possível, com o menor custo possível e o melhor atendimento possível. Esse é o lema da Kairós Automotiva.
+
+A Kairós é a oficina da sua confiança. Aqui, você recebe o melhor atendimento, com o máximo respeito que você e o seu carro merecem.</p>
+                </div>
+            </div>
+            <div class="about-pillars">
+                <div class="pillar card"><i class="fa-solid fa-award icon"></i><h3>Qualidade Garantida</h3><p class="muted">Utilizamos apenas peças de fornecedores confiáveis e nossa equipe é formada por técnicos certificados.</p></div>
+                <div class="pillar card"><i class="fa-solid fa-comments icon"></i><h3>Transparência Total</h3><p class="muted">Prezamos por orçamentos claros e explicamos cada detalhe do serviço, sem surpresas na hora de pagar.</p></div>
+                <div class="pillar card"><i class="fa-solid fa-bolt-lightning icon"></i><h3>Agilidade e Eficiência</h3><p class="muted">Sabemos que seu tempo é precioso. Nosso compromisso é cumprir os prazos e entregar um serviço rápido.</p></div>
+            </div>
         </section>
+
     </main>
 
-    <footer><div>© <span id="year"></span> Kairós Automotiva — Todos os direitos reservados</div></footer>
+    <footer>
+        <div>© <span id="year"></span> Kairós Automotiva — Todos os direitos reservados</div>
+        <div style="margin-top: 8px; font-size: 0.9rem;">
+            Desenvolvido por <a href="https://escalesolution.com/" target="_blank" rel="noopener noreferrer" style="color: var(--muted); text-decoration: none; transition: color 0.3s;">DK Escale Solution</a>
+        </div>
+    </footer>
     
     <div id="messageBox"></div>
 
     <a href="https://wa.me/5511969818515?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os." target="_blank" class="whatsapp-button"><i class="fa-brands fa-whatsapp"></i></a>
-
-    <div id="lightbox-overlay" onclick="closeLightbox()">
-        <span class="lightbox-close">×</span>
-        <img id="lightbox-image" src="" alt="Imagem em destaque">
-    </div>
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
@@ -278,18 +278,6 @@
         const menuToggle = document.querySelector('.menu-toggle');
         const mainNav = document.querySelector('.main-nav');
         menuToggle.addEventListener('click', () => { mainNav.classList.toggle('nav-active'); });
-
-        function openLightbox(imageUrl) {
-            const lightboxOverlay = document.getElementById('lightbox-overlay');
-            const lightboxImage = document.getElementById('lightbox-image');
-            lightboxImage.src = imageUrl;
-            lightboxOverlay.style.display = 'flex';
-        }
-
-        function closeLightbox() {
-            const lightboxOverlay = document.getElementById('lightbox-overlay');
-            lightboxOverlay.style.display = 'none';
-        }
     </script>
 </body>
 </html>
